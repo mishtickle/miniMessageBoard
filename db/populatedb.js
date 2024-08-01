@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
 const { Client } = require("pg");
+import dotenv from "dotenv"
+dotenv.config();
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
