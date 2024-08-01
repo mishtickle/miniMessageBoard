@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const pool = require("../db/pool")
 
-const messages = await pool.query("SELECT * FROM messages");
+const messages = pool.query("SELECT * FROM messages");
 console.log(messages)
 
 /* GET home page. */
