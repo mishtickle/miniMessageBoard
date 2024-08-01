@@ -1,18 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const pool = require("../db/pool")
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date()
-  }
-];
+const messages = await pool.query("SELECT * FROM messages");
+console.log(messages)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,7 +15,7 @@ router.get('/new', function(req, res, next) {
 });
 
 router.post('/new', function(req,res,next){
-  messages.push({text: req.body.message, user: req.body.author, added: new Date()});
+  pool.query("INSERT INTO messages (message) VALUES ($1) ($2) ($3)", [req.body.message][req.body.author][new Date()]);
   res.redirect('/')
 });
 module.exports = router;
