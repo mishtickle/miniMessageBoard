@@ -13,6 +13,6 @@ router.get('/new', function(req, res, next) {
 router.post('/new', function(req,res,next){
   console.log(req.body);
   pool.query("INSERT INTO messages (message, name, date) VALUES ($1, $2, $3)", [req.body.message, req.body.author, new Date()]);
-  res.redirect('/')
+  res.redirect('/');
 });
 module.exports = router;
