@@ -6,5 +6,6 @@ module.exports = new Pool({
     user: process.env.PGUSER,
     database: process.env.PGDATABASE,
     password: process.env.PGPASSWORD,
-    port: process.env.PGPORT 
+    port: process.env.PGPORT,
+    connectionString: process.env.DATABASE_URL 
 })
