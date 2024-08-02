@@ -1,13 +1,12 @@
 #! /usr/bin/env node
 
 const { Client } = require("pg");
-require("dotenv").config(); 
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
     id SERIAL PRIMARY KEY,
-    message VARCHAR(50) NOT NULL,
-    name VARCHAR(50) NOT NULL,
+    message STRING NOT NULL,
+    name STRING NOT NULL,
     date DATE NOT NULL
 );
 
@@ -22,7 +21,7 @@ async function main() {
   console.log("seeding...");
   console.log(process.env.CONNECTION_STRING);
   const client = new Client({
-    connectionString: "postgres://messageboard98-main-db-0daa9f851465b5855:Z7k6eztqA2bP23xeseJQfk7djX5gn1@user-prod-us-east-2-1.cluster-cfi5vnucvv3w.us-east-2.rds.amazonaws.com:5432/messageboard98-main-db-0daa9f851465b5855",
+    connectionString: "postgresql://hamish:1Hammer1$@localhost:5432/messages"
   });
   await client.connect();
   await client.query(SQL);
