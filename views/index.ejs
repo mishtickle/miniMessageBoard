@@ -8,10 +8,10 @@
     <h1><%= title %></h1>
     <p>Messages</p>
     <%if (locals.messages){ %>
-      <%for (let i = 0; i < messages.length; i++){ %>
-      <p><%=messages[i].message%></p>
-      <p><%=messages[i].name%></p>
-      <p><%=messages[i].date%></p>
+      <%for (let i = 0; i < locals.messages.length; i++){ %>
+      <p><%=locals.messages[i].message%></p>
+      <p><%=locals.messages[i].name%></p>
+      <p><%=locals.messages[i].date%></p>
       <br>
     <%} %>
     <%}%>
